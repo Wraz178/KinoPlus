@@ -2170,10 +2170,10 @@ header .mobile-menu {
     #booking {
         position: relative;
         background-image: url('image/NN/KinoPlus.webp');
-        background-size: 100%;
-        background-position: 0%  0%; /* Смещение фона выше */
+        background-size: 100% ;
+        background-position: 0% 0%; /* Смещение фона выше */
         background-attachment: fixed;
-        height: 75vh;
+        height: 500px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -2396,9 +2396,9 @@ header .mobile-menu {
     .halls-background {
         position: relative;
         background-image: url('image/NN/CinemaA.jpg');
-        background-size: 125%;
+        background-size: 150%;
         
-        background-position: center;
+        background-position: 25% 25%;
         background-attachment: fixed;
     
         &::before {
@@ -3731,9 +3731,9 @@ header .mobile-menu {
         
         position: relative;
         background-image: url('image/NN/Faq.png');
-        background-size: 100%;
-        background-repeat:round ;
-        background-position: center 100px ;
+        background-size: 130% 100%;
+        background-repeat:no-repeat ;
+        background-position: 15% 0% ;
         background-attachment:fixed;
     
         &::before {
