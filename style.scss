@@ -3017,36 +3017,42 @@ width: 100%;
                 #price-overlay.time-night {
                     #number1 {
                       top: 91%;
-                      right: 0.3%;
+                      right: 35.3%;
+                      width: 30%;
                     }
                   
                     #number2 {
                       top: 70%;
-                      right: 42%;
+                      right: 76%;
+                      width: 30%;
                     }
                   }
                   
                   #price-overlay.time-day {
                     #number1 {
                       top: 70%;
-                      right: 42%;
+                      right: 76%;
+                      width: 30%;
                     }
                   
                     #number2 {
-                      top: 7%;
-                      right: -24%;
+                      top: 8%;
+                      right: 9%;
+                      width: 30%;
                     }
                   }
                   
                   #price-overlay.time-morning {
                     #number1 {
-                      top: 7%;
-                      right: -24%;
+                      top: 8%;
+                      right: 9%;
+                      width: 30%;
                     }
                   
                     #number2 {
                       top: 91%;
-                      right: 0.3%;
+                      right: 35.3%;
+                      width: 30%;
                     }
                   }
     
@@ -3064,11 +3070,12 @@ width: 100%;
                     .night-price {
                         position: absolute; // Делаем позиционирование абсолютным
                         top: 45%; // Позиция относительно price
-                         right: 0%;
+                         right: 42%;
                         color: white; // Начальный цвет
                         transition: opacity 0.5s ease;
                         font-size: 30px; // Начальный размер
                         opacity: 0;
+                        width: 30%;
                     }
     
                     @keyframes nightPriceAnimation {
@@ -3081,7 +3088,7 @@ width: 100%;
                         100% {
                             position: absolute; // Для возможности перемещения
                             top: 39%; // Позиция относительно price
-                             right: -5%; // Соответствующее положение
+                             right: 29%; // Соответствующее положение
                             color: gray; // Конечный цвет
                             text-decoration: line-through; // Зачеркнуто
                             font-size: 24px; // Конечный размер

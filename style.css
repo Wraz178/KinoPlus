@@ -2198,27 +2198,33 @@
   }
   #prices .images-block .image-stack #price-overlay.time-night #number1 {
     top: 91%;
-    right: 0.3%;
+    right: 35.3%;
+    width: 30%;
   }
   #prices .images-block .image-stack #price-overlay.time-night #number2 {
     top: 70%;
-    right: 42%;
+    right: 76%;
+    width: 30%;
   }
   #prices .images-block .image-stack #price-overlay.time-day #number1 {
     top: 70%;
-    right: 42%;
+    right: 76%;
+    width: 30%;
   }
   #prices .images-block .image-stack #price-overlay.time-day #number2 {
-    top: 7%;
-    right: -24%;
+    top: 8%;
+    right: 9%;
+    width: 30%;
   }
   #prices .images-block .image-stack #price-overlay.time-morning #number1 {
-    top: 7%;
-    right: -24%;
+    top: 8%;
+    right: 9%;
+    width: 30%;
   }
   #prices .images-block .image-stack #price-overlay.time-morning #number2 {
     top: 91%;
-    right: 0.3%;
+    right: 35.3%;
+    width: 30%;
   }
   #prices .images-block .image-stack .price-overlay {
     display: flex;
@@ -2233,11 +2239,12 @@
   #prices .images-block .image-stack .price-overlay .night-price {
     position: absolute;
     top: 45%;
-    right: 0%;
+    right: 42%;
     color: white;
     transition: opacity 0.5s ease;
     font-size: 30px;
     opacity: 0;
+    width: 30%;
   }
   @keyframes nightPriceAnimation {
     0% {
@@ -2247,7 +2254,7 @@
     100% {
       position: absolute;
       top: 39%;
-      right: -5%;
+      right: 29%;
       color: gray;
       text-decoration: line-through;
       font-size: 24px;
