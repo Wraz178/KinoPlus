@@ -34,13 +34,14 @@ const number1 = document.getElementById('number1');
 const number2 = document.getElementById('number2');
 const price = document.getElementById('price');
 const nightPrice = document.getElementById('night-price');
+const priceOverlay = document.getElementById('price-overlay');
 
 let isAnimating = false; // Флаг для предотвращения запуска анимаций во время их выполнения
 
 iconWrappers.forEach(wrapper => {
     wrapper.addEventListener('click', () => {
-        if (!isAnimating) { // Проверяем, что анимации не идут
-            isAnimating = true; // Устанавливаем флаг в true, чтобы заблокировать повторный запуск
+        if (!isAnimating) {
+            isAnimating = true;
             toggleActive(wrapper);
             changeImageAndPrice(wrapper);
         }
@@ -51,8 +52,19 @@ function toggleActive(selectedElement) {
     iconWrappers.forEach(wrapper => {
         wrapper.classList.remove('active');
     });
-    
     selectedElement.classList.add('active');
+
+    // Удаляем старые классы и добавляем нужный к price-overlay
+    priceOverlay.classList.remove('time-night', 'time-day', 'time-morning');
+
+    // Добавляем класс, соответствующий выбранной иконке
+    if (selectedElement.classList.contains('time-night')) {
+        priceOverlay.classList.add('time-night');
+    } else if (selectedElement.classList.contains('time-day')) {
+        priceOverlay.classList.add('time-day');
+    } else if (selectedElement.classList.contains('time-morning')) {
+        priceOverlay.classList.add('time-morning');
+    }
 }
 
 function changeImageAndPrice(selectedElement) {
@@ -67,53 +79,53 @@ function changeImageAndPrice(selectedElement) {
     const newNumber2Top = selectedElement.getAttribute('data-number2-top');
     const newNumber2Right = selectedElement.getAttribute('data-number2-right');
 
+    const isMobile = window.innerWidth <= 480; // проверка на мобильное устройство
+
     // Скрываем элементы для запуска анимаций
     changingImage.style.opacity = '0';
     number1.style.opacity = '0';
     number2.style.opacity = '0';
     price.style.opacity = '0';
 
-    // Проверка, если alt="ночь"
     if (selectedElement.getAttribute('alt') !== 'ночь') {
-        // Устанавливаем ночную цену и делаем её видимой
         nightPrice.textContent = newNightPrice;
         nightPrice.style.opacity = '0';
 
         setTimeout(() => {
-            nightPrice.style.opacity = '1'; // Исчезновение ночной цены
+            nightPrice.style.opacity = '1';
         }, 2100);
 
-        // Добавляем плавное появление ночной цены
         setTimeout(() => {
-            nightPrice.classList.add('night-price-animation'); // Применяем анимацию через 1с
+            nightPrice.classList.add('night-price-animation');
         }, 2400);
 
-        // Плавное исчезновение nightPrice и night-price-animation
         setTimeout(() => {
-            nightPrice.style.opacity = '0'; // Исчезновение ночной цены
-            nightPrice.classList.remove('night-price-animation'); // Убираем класс после исчезновения
+            nightPrice.style.opacity = '0';
+            nightPrice.classList.remove('night-price-animation');
         });
     }
 
-    // Обновляем стиль и текст для обычной цены
     setTimeout(() => {
         price.textContent = newPrice;
         price.style.opacity = '1';
-    }, 3000); // Появление основной цены после завершения анимации nightPrice
+    }, 3000);
 
-    // Плавное появление number элементов
     setTimeout(() => {
         number1.textContent = newNumber1;
         number2.textContent = newNumber2;
-        number1.style.top = newNumber1Top;
-        number1.style.right = newNumber1Right;
-        number2.style.top = newNumber2Top;
-        number2.style.right = newNumber2Right;
+
+        // Только на десктопе применяем стили позиционирования
+        if (!isMobile) {
+            number1.style.top = newNumber1Top;
+            number1.style.right = newNumber1Right;
+            number2.style.top = newNumber2Top;
+            number2.style.right = newNumber2Right;
+        }
+
         number1.style.opacity = '1';
         number2.style.opacity = '1';
-    }, 700); // Появление number до появления обычной цены
+    }, 700);
 
-    // Плавное появление changingImage после number
     setTimeout(() => {
         changingImage.src = newImageSrc;
         changingImage.style.opacity = '1';
