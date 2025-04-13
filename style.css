@@ -1639,7 +1639,7 @@
     background-color: rgb(255, 178, 139);
     color: black;
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px #FFB28B; /* Исходное свечение */
+    box-shadow: 0 0 15px #FFB28B;
   }
   #booking button:hover {
     background-color: rgb(0, 0, 0); /* Изменение цвета на черный */
